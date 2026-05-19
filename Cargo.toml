@@ -1,0 +1,34 @@
+[package]
+name = "water-reminder"
+version = "0.2.0"
+edition = "2024"
+description = "Recordatorio periodico de hidratacion para Linux"
+license = "MIT"
+
+[features]
+default = []
+gui = ["dep:gtk", "dep:glib", "dep:gio", "dep:tray-icon", "dep:image", "dep:rand"]
+
+[dependencies]
+anyhow = "1.0"
+chrono = { version = "0.4", default-features = false, features = ["clock", "serde"] }
+dirs = "6.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "2.0"
+
+glib = { version = "0.18", optional = true }
+gio = { version = "0.18", optional = true }
+gtk = { version = "0.18", optional = true }
+image = { version = "0.25", default-features = false, features = ["png"], optional = true }
+rand = { version = "0.9", optional = true }
+tray-icon = { version = "0.21", optional = true }
+
+[dev-dependencies]
+temp-env = "0.3"
+tempfile = "3.23"
+
+[profile.release]
+codegen-units = 1
+lto = "thin"
+strip = "symbols"

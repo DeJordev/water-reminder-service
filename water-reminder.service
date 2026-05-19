@@ -1,0 +1,13 @@
+[Unit]
+Description=Water Reminder - recordatorio periodico de hidratacion
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/water-reminder
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=graphical-session.target

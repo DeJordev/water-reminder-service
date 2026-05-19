@@ -1,0 +1,12 @@
+# Rust
+/target/
+dist/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+.agents
+skills-lock.json
+.codegraph/config.json
+.codegraph/.gitignore
